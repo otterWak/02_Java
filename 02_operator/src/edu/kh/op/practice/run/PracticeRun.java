@@ -10,17 +10,17 @@ public class PracticeRun {
 		// TODO Auto-generated method stub
 
 		OperatorPractice opPr = new OperatorPractice();
-		opPr.practice1();
-		opPr.practice2();
-		opPr.practice3();
+		//opPr.practice1();
+		//opPr.practice2();
+		//opPr.practice3();
 		
 		OperatorPractice2 opPr2 = new OperatorPractice2();
-		opPr2.ex1();
+		//opPr2.ex1();
 		
 		OperatorPractice3 opPr3 = new OperatorPractice3();
-		opPr3.ex1();
+		//opPr3.ex1();
 		opPr3.ex2();
-		opPr3.ex3();
+		//opPr3.ex3();
 		
 	}
 

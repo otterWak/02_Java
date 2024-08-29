@@ -34,9 +34,16 @@ public class OperatorPractice3 {
 		int v2 = sc.nextInt();
 		
 		int b50 = v2/50000;
-		int b10 = (v2 - b50*50000)/10000;
-		int b5 = (v2 - b50*50000 - b10*10000)/5000;
-		int b1 = (v2 - b50*50000 - b10*10000 - b5*5000)/1000;
+		v2 %= 50000;
+		
+		int b10 = v2/10000;
+		v2 %= 10000;
+		
+		int b5 = v2/5000;
+		v2 %= 5000;
+		
+		int b1 = v2/1000;
+		v2 %= 1000;
 		
 		System.out.println("50000원 : " + b50);
 		System.out.println("10000원 : " + b10);
