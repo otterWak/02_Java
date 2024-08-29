@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;edu.kh.op.practice.OperatePractice3.java&apos; to &apos;OperatorPractice3.java&apos;&#x0D;&#x0A;- Original project: &apos;02_operator&apos;&#x0D;&#x0A;- Original element: &apos;edu.kh.op.practice.OperatePractice3.java&apos;&#x0D;&#x0A;- Renamed element: &apos;edu.kh.op.practice.OperatorPractice3.java&apos;" description="Rename compilation unit &apos;OperatePractice3.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;edu.kh.op.practice{OperatePractice3.java" name="OperatorPractice3.java" references="false" stamp="1724915209579" version="1.0"/>
+</session>
