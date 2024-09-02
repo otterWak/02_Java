@@ -153,17 +153,23 @@ public class LoopPractice {
 	//**
 	//*
 	
+
 	public void practice9(){
 		System.out.print("정수 입력 : ");
 		int num = sc.nextInt();
-		String result = " ";
 		
-		for(int i = 1; i <=num; i++) {
-			result += "*";
-			System.out.println(result);
+		for(int y = 1; y <= num; y++) {
+			for(int x = num-1; x>=y; x--) {
+				System.out.print(" ");
+			}
+			for(int x = 1; x <= y; x++) {
+				System.out.print("*");
+			}
+			System.out.println();
 		}
 		
 	}
+
 //	다음과 같은 실행 예제를 구현하세요.
 //	정수 입력 : 4
 //	   *
@@ -173,6 +179,22 @@ public class LoopPractice {
 	
 	
 	public void practice10(){
+		System.out.print("정수 입력 : ");
+		int num = sc.nextInt();
+		
+		for(int y = 1; y <= num; y++) {
+			for(int i=1; i<=y; i++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		
+		for(int y = num-1; y >= 1; y--) {
+			for(int x=1; x<=y; x++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
 	}
 //	다음과 같은 실행 예제를 구현하세요.
 //	ex.
@@ -183,4 +205,90 @@ public class LoopPractice {
 //	**
 //	*
 
+	
+	
+	public void practice11(){
+
+		System.out.print("정수 입력 : ");
+		int num = sc.nextInt();
+		
+		for(int i = 1; i <= num ; i++) {
+			for(int b = 1; b<=num-i; b++) {
+				System.out.print(" ");
+			}
+			for(int x = 1; x<= 2*i-1; x++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+//	다음과 같은 실행 예제를 구현하세요.
+//	ex.
+//	정수 입력 : 4
+//	   *
+//	  ***
+//	 *****
+//	*******
+	
+	
+	public void practice12(){
+		System.out.print("정수 입력 : ");
+		int num = sc.nextInt();
+		
+		for(int i = 1; i <=num; i++) {
+			if(i == 1 || i == num) {
+				for(int y = 1; y <= num; y++) {
+					System.out.print("*");
+				}
+			}else {
+				for(int y = 1; y <= num; y++) {
+					if(y == 1 || y == num) {
+						System.out.print("*");
+					}else {
+						System.out.print(" ");
+					}
+				}
+			}
+			System.out.println();
+		}
+	}
+//	다음과 같은 실행 예제를 구현하세요.
+//
+//	ex.
+//	정수 입력 : 5
+//	*****
+//	*   *
+//	*   *
+//	*   *
+//	*****
+	
+	
+	public void practice13(){
+		int count = 0;
+		
+		System.out.print("자연수 하나를 입력하세요 : ");
+		int num = sc.nextInt();
+		
+		for(int i=1; i <=num; i ++) {
+			if(i%2==0 || i%3 ==0) {
+				System.out.print(i + " ");
+				if(i%2==0 && i%3==0) {
+					count += 1;
+				}
+			}
+		}
+		System.out.println();
+		System.out.println("count : "+ count);
+	}
+//	1부터 사용자에게 입력 받은 수까지 중에서
+//	1) 2와 3의 배수를 모두 출력하고
+//	2) 2와 3의 공배수의 개수를 출력하세요.
+//
+//	* ‘공배수’는 둘 이상의 수의 공통인 배수라는 뜻으로 어떤 수를 해당 수들로 나눴을 때
+//	모두 나머지가 0이 나오는 수
+//
+//	ex.
+//	자연수 하나를 입력하세요 : 15
+//	2 3 4 6 8 9 10 12 14 15
+//	count : 2
 }
