@@ -21,7 +21,7 @@ public class PracticeRun {
 		//opPr3.ex1();
 		opPr3.ex2();
 		//opPr3.ex3();
-		
+
 	}
 
 }

@@ -44,6 +44,8 @@ public class OperatorPractice {
 		System.out.print("성별 : ");
 		String sex = sc.next();
 		
+		// sc.nextLine(); // 입력버퍼 비우는 일(개행문자 비우기)
+		
 		System.out.print("성적(소수점 아래 둘째자리 까지) : ");
 		float score = sc.nextFloat();
 		
