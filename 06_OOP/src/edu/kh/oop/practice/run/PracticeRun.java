@@ -1,6 +1,7 @@
 package edu.kh.oop.practice.run;
 
 import edu.kh.oop.practice.model.service.BookService;
+import edu.kh.oop.practice.model.service.HeroSe;
 
 public class PracticeRun {
 
@@ -21,7 +22,10 @@ public class PracticeRun {
 		
 		BookService BS = new BookService();
 		
-		BS.practice();
+//		BS.practice();
+		
+		HeroSe hero = new HeroSe();
+		hero.practice();
 		
 	}
 	
