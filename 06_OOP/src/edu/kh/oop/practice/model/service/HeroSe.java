@@ -5,21 +5,38 @@ import edu.kh.oop.practice.model.vo.Hero;
 public class HeroSe {
 
 	public void practice() {
-		System.out.println("===========캐릭터 생성===========");
+		Hero nb1 = new Hero("이구역짱", "전사", 200, 20, 1, 0);
+		Hero nb2 = new Hero("Zi존위자드", "마법사", 100, 100, 1, 0);
 		
-		Hero nb1 = new Hero("이구역짱", "전사", 200, 20, 1, 0.0);
-		Hero nb2 = new Hero("Zi존위자드", "마법사", 100, 100, 1, 0.0);
-		
-		System.out.println(nb1.toString());
-		System.out.println(nb2.toString());
-		
-		nb1.attack(100.0);
-		nb1.attack(150.5);
-		nb1.attack(200.0);
+		System.out.printf("=========%s 시점=========\n", nb1.getNickname());
+		nb1.attack(100);
+		nb1.attack(50.5);
+		nb1.attack(49.5);
 		nb1.dash();
 		nb1.dash();
 		nb1.dash();
 		
-		System.out.println(nb1.toString());
+		System.out.printf(nb1.toString(),
+				nb1.getNickname(),
+				nb1.getLevel(),
+				nb1.getHp(),
+				nb1.getMp(),
+				nb1.getExp()
+				);
+		
+		System.out.printf("=========%s 시점=========\n", nb2.getNickname());
+		nb2.attack(300.0);
+		nb2.dash();
+		nb2.attack(300.0);
+		nb2.attack(300.0);
+		
+		System.out.printf("=========%s 시점=========\n", nb2.getNickname());
+		nb2.attack(100);
+		nb2.attack(50.5);
+		nb2.attack(49.5);
+		nb2.dash();
+		nb2.dash();
+		nb2.dash();
+		
 	}
 }
