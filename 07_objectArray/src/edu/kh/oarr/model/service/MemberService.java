@@ -192,6 +192,7 @@ public class MemberService {
 		}
 		
 		return "\n이름 : " + loginMember.getMemberName()
+				+ "\n아이디 : " + loginMember.getMemberId()
 				+ "\n나이 : " + loginMember.getMemberAge()
 				+ "\n지역 : " + loginMember.getRegion();
 		
@@ -209,13 +210,13 @@ public class MemberService {
 		
 		
 		// 2) 수정할 회원 정보 입력 받기(이름, 나이, 지역)
-		System.out.print("이름 입력 : ");
+		System.out.print("수정할 이름 입력 : ");
 		String inpuName = sc.next();
 		
-		System.out.print("나이 입력 : ");
+		System.out.print("수정할 나이 입력 : ");
 		int inputAge = sc.nextInt();
 		
-		System.out.print("지역 입력 : ");
+		System.out.print("수정할 지역 입력 : ");
 		String inputRegion = sc.next();
 		
 		// 3) 비밀번호를 입력받아서
