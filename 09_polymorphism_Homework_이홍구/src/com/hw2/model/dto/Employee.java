@@ -19,7 +19,7 @@ public class Employee extends Person{
 	public String getInfo() {
 		return "ID : " + id
 				+ " , 이름 : " + name
-				+ " , 직책 : " + position + "\n";
+				+ " , 직책 : " + position;
 	}
 
 

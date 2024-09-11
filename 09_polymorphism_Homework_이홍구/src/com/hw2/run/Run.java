@@ -1,5 +1,7 @@
 package com.hw2.run;
 
+import com.hw2.model.dto.Employee;
+
 public class Run {
 	public static void main(String[] args) {
 		// Company의 생성자를 이용하여 10칸 짜리 Employee 객체배열 생성하는 Company 객체를
@@ -19,5 +21,8 @@ public class Run {
 		
 		// 현재 남은 직원 모두 조회
 		// 현재 남은 수감자 모두 조회
+		
+		Employee emp1 = new Employee("EMP001", "유재석", "기획팀");
+		Employee emp2 = new Employee("EMP002", "정형돈", "개발팀");
 	}
 }

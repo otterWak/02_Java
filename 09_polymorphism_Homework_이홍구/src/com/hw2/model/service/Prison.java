@@ -1,5 +1,6 @@
 package com.hw2.model.service;
 
+import com.hw2.model.dto.Employee;
 import com.hw2.model.dto.Person;
 import com.hw2.model.dto.Prisoner;
 
@@ -18,19 +19,44 @@ public class Prison implements ManagementSystem{
 
 	@Override
 	public void addPerson(Person person) {
-		
+		for(int i = 0; i < prisoners.length; i++) {
+			if(prisonerCount != prisoners.length) {
+				prisoners[i] = (Prisoner) person;
+				System.out.println(prisoners[i].getInfo());
+				break;
+			}else {
+				System.out.println("인원이 모두 충원되었습니다");
+				break;
+			}
+		}
 	}
 
 
 	@Override
 	public void removePerson(String id) {
-		
+		for(int i = 0; i < prisoners.length; i++) {
+			if(id.equals(prisoners[i].getId())) {
+				prisoners[i] = null;
+				break;
+			}else {
+				System.out.println("해당 id를 가진 수감자를 찾을 수 없습니다");
+				break;
+			}
+		}
 	}
 
 
 	@Override
 	public void displayAllPersons() {
+		System.out.println("전체 수감자 명단 : ");
 		
+		for(int i = 0; i < prisoners.length; i++) {
+			if(prisoners[i] == null) {
+				break;
+			}else {
+				System.out.println(prisoners[i].getInfo());
+			}
+		}
 	}
 
 
