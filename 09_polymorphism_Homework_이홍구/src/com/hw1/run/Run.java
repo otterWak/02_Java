@@ -16,8 +16,8 @@ public class Run {
 		book[2] = new Poetry("우리들의 사랑시", "김소월", 30);
 		
 		// 모든 도서 정보 출력
-		for(int i = 0; i < book.length; i++) {
-			book[i].displayInfo();
+		for(Book books : book) {
+			books.displayInfo();
 		}
 		
 	}

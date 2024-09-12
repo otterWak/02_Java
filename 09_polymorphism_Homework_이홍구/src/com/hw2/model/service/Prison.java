@@ -6,9 +6,9 @@ import com.hw2.model.dto.Prisoner;
 
 public class Prison implements ManagementSystem{
 
-	private Prisoner[] prisoners; // 전체 수용자 저장용 배열
+	private Prisoner[] prisoners; // 전체 수감자 저장용 배열
 	
-	private int prisonerCount; // 사용자 수 
+	private int prisonerCount; // 수감자 수 
 	
 	
 	public Prison(int size) {
@@ -19,30 +19,32 @@ public class Prison implements ManagementSystem{
 
 	@Override
 	public void addPerson(Person person) {
-		for(int i = 0; i < prisoners.length; i++) {
-			if(prisonerCount != prisoners.length) {
-				prisoners[i] = (Prisoner) person;
-				System.out.println(prisoners[i].getInfo());
-				break;
-			}else {
-				System.out.println("인원이 모두 충원되었습니다");
-				break;
-			}
+		if(person instanceof Prisoner && prisonerCount < prisoners.length) {
+			prisoners[prisonerCount++] = (Prisoner)person;
+			System.out.println("수감자가 추가 되었습니다 - " + person.getInfo());
+		}else {
+			System.out.println("인원이 많아서 더 이상 수감 불가");
 		}
 	}
 
-
 	@Override
 	public void removePerson(String id) {
-		for(int i = 0; i < prisoners.length; i++) {
+		for(int i = 0; i < prisonerCount; i++) {
 			if(id.equals(prisoners[i].getId())) {
+				System.out.println("수감자가 삭제되었습니다 - " + prisoners[i].getInfo());
 				prisoners[i] = null;
-				break;
-			}else {
-				System.out.println("해당 id를 가진 수감자를 찾을 수 없습니다");
-				break;
+				
+				for(int c = i; c < prisonerCount -1 ; c++) {
+					prisoners[c] = prisoners[c+1];
+				}
+				
+				prisoners[--prisonerCount] = null;
+				return;
 			}
+
+			System.out.println("해당 id를 가진 수감자를 찾을 수 없습니다");
 		}
+		
 	}
 
 
@@ -50,12 +52,8 @@ public class Prison implements ManagementSystem{
 	public void displayAllPersons() {
 		System.out.println("전체 수감자 명단 : ");
 		
-		for(int i = 0; i < prisoners.length; i++) {
-			if(prisoners[i] == null) {
-				break;
-			}else {
+		for(int i = 0; i < prisonerCount; i++) {
 				System.out.println(prisoners[i].getInfo());
-			}
 		}
 	}
 

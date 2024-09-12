@@ -9,17 +9,15 @@ public class Employee extends Person{
 	public Employee(String id, String name, String position) {
 		super(id, name);
 		this.position = position;
-		
-		System.out.println("직원이 추가되었습니다 - " + getInfo() );
 	}
 
 
 
 	@Override
 	public String getInfo() {
-		return "ID : " + id
-				+ " , 이름 : " + name
-				+ " , 직책 : " + position;
+		return String.format("Id : %s , 이름 : %s , 직책 : %s", id, name, position);
+		// id와 name을 Person에서 Protected로 만들었기 때문에
+		// 후손클래스에서 직접 접근 가능
 	}
 
 

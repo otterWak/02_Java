@@ -9,17 +9,13 @@ public class Prisoner extends Person {
 	public Prisoner(String id, String name, String crime) {
 		super(id, name);
 		this.crime = crime;
-		
-		System.out.println("수감자가 추가되었습니다 - " + getInfo() );
 	}
 
 
 
 	@Override
 	public String getInfo() {
-		return "ID : " + id
-				+ " , 이름 : " + name
-				+ " , 죄목 : " + crime + "\n";
+		return String.format("Id : %s , 이름 : %s , 직책 : %s", id, name, crime);
 	}
 	
 	
