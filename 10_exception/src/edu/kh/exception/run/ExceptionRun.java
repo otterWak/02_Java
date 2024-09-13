@@ -9,14 +9,15 @@ public class ExceptionRun {
 //		new ExceptionService().ex1();
 //		new ExceptionService().ex2();
 //		new ExceptionService().ex3();
-		new ExceptionService().ex4();
-		
-		
-		try {
-			new ExceptionService().ex5();
-		} catch (UserException e) {
-			System.out.println(e.getMessage());
-		}
+//		new ExceptionService().ex4();
+//		
+//		
+//		try {
+//			new ExceptionService().ex5();
+//		} catch (UserException e) {
+//			System.out.println(e.getMessage());
+//		}
+
 	}
 
 }
