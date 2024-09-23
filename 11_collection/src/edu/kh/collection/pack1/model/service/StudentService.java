@@ -40,7 +40,7 @@ public class StudentService {
 	// 부모타입(List) 참조변수(testList) = 자식객체(ArayList) 주소 대입
 	// 다형성 중 업캐스팅 적용
 	
-	// 제네릭(Generics)
+	// 제네릭스(Generics)
 	// -> 컬렉션에 저장되는 객체 타입을 한가지로 제한 : <E> == Element
 	//    다양한 타입을 처리할 수 있도록 만들어짐
 	
