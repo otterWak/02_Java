@@ -1,28 +1,44 @@
 package toy.factory.model.dto;
 
-import java.util.Map;
+import java.util.Iterator;
+import java.util.Objects;
+import java.util.Set;
 
-// 장난감의 정보를 저장하고 관리하는 데이터 전송 객체(DTO)
+import toy.factory.model.service.ToyFactoryClass;
+
 public class ToyClass {
 
+	ToyFactoryClass service = new ToyFactoryClass();
+	
 	private String name;
 	private int age;
 	private int price;
 	private String color;
 	private int date;
-	private Map<Integer, String> material;
+	private Set<String> material;
 	
-	public ToyClass() {
-		// TODO Auto-generated constructor stub
-	}
+	public ToyClass() {}
 
-	public ToyClass(String name, int age, int price, String color, int date) {
+	public ToyClass(String name, int age, int price, String color, int date, Set<String> material) {
 		super();
 		this.name = name;
 		this.age = age;
 		this.price = price;
 		this.color = color;
 		this.date = date;
+		this.material = material;
+	}
+	
+	public String materialIt() {
+		Iterator<String> materialName = material.iterator();
+		
+		String kinds = ""; 
+		
+		while(materialName.hasNext()) {
+			kinds +=  materialName.next() + ", ";
+		};
+		kinds = kinds.replaceAll(", $",  "");
+		return kinds;
 	}
 
 	public String getName() {
@@ -65,14 +81,45 @@ public class ToyClass {
 		this.date = date;
 	}
 
-	public Map<Integer, String> getMaterial() {
+	public Set<String> getMaterial() {
 		return material;
 	}
 
-	public void setMaterial(Map<Integer, String> material) {
+	public void setMaterial(Set<String> material) {
 		this.material = material;
 	}
 	
+	@Override
+	public String toString() {
+
+		
+		return "이름 : " + name
+				+ " / 가격 : " + price
+				+ " / 색상 : " + color
+				+ " / 사용가능연령 : " + age
+				+ " / 제조년월일 : " + date
+				+ " / 재료 : " + materialIt();
+	}
+
+	
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(age, color, date, material, name, price);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ToyClass other = (ToyClass) obj;
+		return age == other.age && Objects.equals(color, other.color) && date == other.date
+				&& Objects.equals(material, other.material) && Objects.equals(name, other.name) && price == other.price;
+	}
 	
 	
 }
