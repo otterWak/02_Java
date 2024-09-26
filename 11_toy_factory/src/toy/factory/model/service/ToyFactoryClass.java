@@ -48,10 +48,7 @@ public class ToyFactoryClass {
 	}
 	
 	public void displayMenu() {
-		
-		
 		int num = -1;
-		
 		while(num != 0) {
 			System.out.println("===================================================");
 			System.out.println("<<플레이타임 공장>>");
@@ -80,7 +77,6 @@ public class ToyFactoryClass {
 			default : System.out.println("0~7 사이 숫자만 입력하시오");
 			}
 		}
-		
 	}
 
 
@@ -118,7 +114,7 @@ public class ToyFactoryClass {
 		System.out.print("색상 : ");
 		String color = sc.next();
 		
-		System.out.print("제조일 : ");
+		System.out.print("제조일 (YYYYMMDD 형식으로 입력): ");
 		int date = sc.nextInt();
 		
 		Set<String> material = new HashSet<String>();
@@ -154,6 +150,9 @@ public class ToyFactoryClass {
 				toys.remove(toy);
 				flag = true;
 				break;
+				// 1. 효율 향상을 위해 break;
+				// 2. 순회중인 컬렉션 객체가 수정되어 충돌한다는 예외 발생
+				// -> 예외 방지 및 효율을 위해서 작성
 			}
 		}
 		
@@ -182,17 +181,34 @@ public class ToyFactoryClass {
 		System.out.println("<연령별로 사용 가능한 장난감>");
 		
 		Map<Integer, List<ToyClass>> toyage = new HashMap<Integer, List<ToyClass>>();
+		// toyage라는 이름의 새로운 Map을 생성
+		// -> 연령을 key로 지정하고, 해당 연령을 가진 장난감 List를 value로 가짐
+		// {K : V, K : V, K : V...}
+		// -> {5 : ["키시미시", "허기워기"], 8:["냇냅", "마미롱레그"], 12 : ["파피"]}
 		
 		for(ToyClass toy : toys) {
 			int age = toy.getAge();
 			toyage.putIfAbsent(age, new ArrayList<>());
+			// putIfAbsent() : Map에서 제공하는 메서드로,
+			// 해당 키가 존재하지 않는 경우메나 전달 받은 값을 추가함.
+			// -> Map에 해당 연령의 리스트가 없는 경우에만 새로운 리스트를 생성하여 추가
 			
 			toyage.get(age).add(toy);
+			// toyage.get(age) -> age(K)에 맞는 Value 반환 -> List
+			// List.add(toy) -> 전달된 toy객체를 List에 추가
 		}
 		
+		/* toyage (Map) :
+		 * {
+		 * 		5: ["키시미시", "허기워기"]
+		 * 		8: ["캣냅", {마미롱레그"],
+		 * 		12: ["파피"]
+		 * }
+		 * 
+		 * */
 		for(Entry<Integer, List<ToyClass>> entry : toyage.entrySet()) {
-			int age = entry.getKey();
-			List<ToyClass> list = entry.getValue();
+			int age = entry.getKey(); // 해당 entry의 key(나이)를 얻어옴
+			List<ToyClass> list = entry.getValue(); // 해당 entry의 value를 얻어옴
 			
 			System.out.println("[연령 : " + age + "세]");
 			int num = 1;
